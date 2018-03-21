@@ -43,9 +43,9 @@
     
     if (!_tfOne) {
         
-        _tfOne = [[CustomTextField alloc] initWithFrame:CGRectMake(self.w / 2 - 150, 64 + 30, 300, 44)];
+        _tfOne = [[CustomTextField alloc] initWithFrame:CGRectMake(self.width / 2 - 150, 64 + 30, 300, 44)];
         
-        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tfOne.x, _tfOne.y - 20, _tfOne.w, 20)];
+        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tfOne.left, _tfOne.top - 20, _tfOne.width, 20)];
         tip.textColor = [UIColor redColor];
         tip.font = [UIFont systemFontOfSize:14.0f];
         tip.text = @"限制输入9位数，1位小数";
@@ -63,9 +63,9 @@
 - (CustomTextField *)tfTwo {
     
     if (!_tfTwo) {
-        _tfTwo = [[CustomTextField alloc] initWithFrame:CGRectMake(self.w / 2 - 150, _tfOne.bottom + 30, 300, 44)];
+        _tfTwo = [[CustomTextField alloc] initWithFrame:CGRectMake(self.width / 2 - 150, _tfOne.bottom + 30, 300, 44)];
         
-        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tfTwo.x, _tfTwo.y - 20, _tfTwo.w, 20)];
+        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tfTwo.left, _tfTwo.top - 20, _tfTwo.width, 20)];
         tip.textColor = [UIColor redColor];
         tip.font = [UIFont systemFontOfSize:14.0f];
         tip.text = @"限制输入8位整数";
@@ -83,9 +83,9 @@
 - (CustomTextView *)tvThree {
     
     if (!_tvThree) {
-        _tvThree = [[CustomTextView alloc] initWithFrame:CGRectMake(self.w / 2 - 150, _tfTwo.bottom + 30, 300, 44)];
+        _tvThree = [[CustomTextView alloc] initWithFrame:CGRectMake(self.width / 2 - 150, _tfTwo.bottom + 30, 300, 44)];
         
-        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tvThree.x, _tvThree.y - 20, _tvThree.w, 20)];
+        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tvThree.left, _tvThree.top - 20, _tvThree.width, 20)];
         tip.textColor = [UIColor redColor];
         tip.font = [UIFont systemFontOfSize:14.0f];
         tip.text = @"限制输入8位整数";
@@ -107,9 +107,9 @@
 - (CustomTextView *)tvFour {
     
     if (!_tvFour) {
-        _tvFour = [[CustomTextView alloc] initWithFrame:CGRectMake(self.w / 2 - 150, _tfTwo.bottom + 30, 300, 80)];
+        _tvFour = [[CustomTextView alloc] initWithFrame:CGRectMake(self.width / 2 - 150, _tfTwo.bottom + 30, 300, 80)];
         
-        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tvFour.x, _tvFour.y - 20, _tvFour.w, 20)];
+        UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(_tvFour.left, _tvFour.top - 20, _tvFour.width, 20)];
         tip.textColor = [UIColor redColor];
         tip.font = [UIFont systemFontOfSize:14.0f];
         tip.text = @"限制输入字数30";
@@ -148,7 +148,7 @@
 - (void)resignKeyboard {
     
     [self endEditing:YES];
-    [mNotificationCenter removeObserver:self];
+    [HPNOTIF removeObserver:self];
 }
 
 - (void)keyboardFrameChange:(NSNotification *)notice {

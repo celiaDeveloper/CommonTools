@@ -61,17 +61,19 @@
 - (SDCycleScrollView *)bannerView
 {
     if (!_bannerView) {
-        _bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 10, mScreenWidth - 20, 400 * m6PScale) imageURLStringsGroup:nil];
+        _bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 10, HPScreenWidth - 20, 400 * HPscale_W) imageURLStringsGroup:nil];
         _bannerView.layer.masksToBounds = YES;
         _bannerView.layer.cornerRadius = 5;
         _bannerView.showPageControl = YES;
         _bannerView.pageControlDotSize = CGSizeMake(15, 15);
-        _bannerView.currentPageDotColor = mHexColor(0x20a2e6);
-        _bannerView.pageDotColor = [UIColor whiteColor];
-        _bannerView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        _bannerView.currentPageDotColor = [UIColor whiteColor];
+        _bannerView.pageDotColor = [UIColor lightGrayColor];
+        _bannerView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _bannerView.delegate = self;
         _bannerView.placeholderImage = [UIImage imageNamed:@"placeholder-big"];
         _bannerView.autoScrollTimeInterval = 2.0;
+        _bannerView.titleLabelHeight = 44;
+        _bannerView.titleLabelBackgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     }
     return _bannerView;
 }
@@ -79,6 +81,7 @@
 -(void)setImagesURLStrings:(NSArray *)imagesURLStrings
 {
     self.bannerView.imageURLStringsGroup = imagesURLStrings;
+    self.bannerView.titlesGroup = imagesURLStrings;
 }
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
@@ -95,7 +98,7 @@
 - (UITableView *)ZYWTableview
 {
     if (!_ZYWTableview) {
-        _ZYWTableview = [[UITableView alloc] initWithFrame:CGRectMake(10, 64, mScreenWidth - 20, mScreenHeight - 64) style:(UITableViewStyleGrouped)];
+        _ZYWTableview = [[UITableView alloc] initWithFrame:CGRectMake(10, 64, HPScreenWidth - 20, HPScreenHeight - 64) style:(UITableViewStyleGrouped)];
         _ZYWTableview.userInteractionEnabled = YES;
 //        _ZYWTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _ZYWTableview.showsVerticalScrollIndicator = NO;
@@ -104,7 +107,7 @@
         _ZYWTableview.dataSource = self;
         [_ZYWTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"mainCell"];
         
-        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mScreenWidth - 20, 400 * m6PScale + 10)];
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, HPScreenWidth - 20, 400 * HPscale_W + 10)];
         _ZYWTableview.tableHeaderView = headView;
         [headView addSubview:self.bannerView];
         _ZYWTableview.tableFooterView = [UIView new];

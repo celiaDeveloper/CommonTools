@@ -22,7 +22,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    MainView *mainView = [[MainView alloc] initWithFrame:CGRectMake(0, mNavHeight, mScreenWidth, mScreenHeight - mNavHeight)];
+    MainView *mainView = [[MainView alloc] initWithFrame:CGRectMake(0, HPNavBarH, HPScreenWidth, HPScreenWidth - HPNavBarH)];
     mainView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:mainView];

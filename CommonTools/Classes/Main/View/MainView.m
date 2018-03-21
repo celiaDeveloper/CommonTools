@@ -42,7 +42,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.w, self.h) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -80,35 +80,35 @@
         {
             NSLog(@"轮播");
             CycleViewController *cycleVC = [[CycleViewController alloc] init];
-            UIViewController *VC = [_tableView getCurrentViewController];
+            UIViewController *VC = [_tableView belongViewController];
             [VC.navigationController pushViewController:cycleVC animated:YES];
         }
             break;
         case 1:
         {
             LimitViewController *limitVC = [[LimitViewController alloc] init];
-            UIViewController *vc = [_tableView getCurrentViewController];
+            UIViewController *vc = [_tableView belongViewController];
             [vc.navigationController pushViewController:limitVC animated:YES];
         }
             break;
         case 2:
         {
             HUDViewController *HUDVC = [[HUDViewController alloc] init];
-            UIViewController *vc = [_tableView getCurrentViewController];
+            UIViewController *vc = [_tableView belongViewController];
             [vc.navigationController pushViewController:HUDVC animated:YES];
         }
             break;
         case 3:
         {
             NetworkViewController *networkVC = [[NetworkViewController alloc] init];
-            UIViewController *vc = [_tableView getCurrentViewController];
+            UIViewController *vc = [_tableView belongViewController];
             [vc.navigationController pushViewController:networkVC animated:YES];
         }
             break;
         case 4:
         {
             SegmentViewController *segmentVC = [[SegmentViewController alloc] init];
-            UIViewController *vc = [_tableView getCurrentViewController];
+            UIViewController *vc = [_tableView belongViewController];
             [vc.navigationController pushViewController:segmentVC animated:YES];
         }
             break;

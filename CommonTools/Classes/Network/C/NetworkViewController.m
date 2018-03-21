@@ -8,7 +8,7 @@
 
 #import "NetworkViewController.h"
 
-#import "XDDNetworking.h"
+#import "HPApiSender.h"
 #import "XMNetWorkTools.h"
 #import "HYBNetworking.h"
 
@@ -24,7 +24,7 @@
     self.title = @"网络请求测试";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *btn1 = [self createBtn:@"XDDNetworkTest" tag:1];
+    UIButton *btn1 = [self createBtn:@"HPApiSender" tag:1];
     [self.view addSubview:btn1];
     
     UIButton *btn2 = [self createBtn:@"XMNetworkTest" tag:2];
@@ -37,7 +37,7 @@
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
         make.top.equalTo(self.view).offset(100);
-        make.size.mas_equalTo(CGSizeMake(self.view.w - 40, 50));
+        make.size.mas_equalTo(CGSizeMake(self.view.width - 40, 50));
     }];
     
     [btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,7 +53,7 @@
 
 - (UIButton *)createBtn:(NSString *)title tag:(NSInteger)tag {
     
-    UIButton *btn = [UIButton initButtonWithTitleFont:15.0f TtileColor:[UIColor whiteColor] TitleName:title backgroundColor:self.view.tintColor radius:0];
+    UIButton *btn = [UIButton initButtonTitleFont:15.0f titleColor:[UIColor whiteColor] titleName:title backgroundColor:self.view.tintColor radius:0];
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     btn.tag = tag;
     
@@ -64,7 +64,7 @@
     
     switch (btn.tag) {
         case 1:
-            [self XDDNetworkTest];
+            [self HPNetworkTest];
             break;
         case 2:
             [self XMNetworkTest];
@@ -78,15 +78,16 @@
     
 }
 
-- (void)XDDNetworkTest {
+- (void)HPNetworkTest {
     
     
-    [[XDDNetworking shareNetworking] sendHttpRequestWithType:HttpRequestTypeGet URL:[goods_cate stringByAppendingString:@"cat="] params:nil successBlock:^(NSDictionary * _Nonnull successDic) {
-        
-        NSLog(@"XDDNetworking get data :%@",successDic);
-        
-    } failedBlock:^(NSError * _Nonnull error) {
-        
+    [HPApiSender commit:^(HPRequestCenter *request) {
+        request.type = HPHttpRequestTypeGet;
+        request.url = [goods_cate stringByAppendingString:@"cat="];
+        request.contentView = self.view;
+        request.parameter = @{};
+    } finished:^(id JSON) {
+        NSLog(@"HPNetworking get data :%@",JSON);
     }];
     
 }

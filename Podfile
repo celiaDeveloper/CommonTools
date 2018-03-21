@@ -10,6 +10,9 @@ target 'CommonTools' do
 pod 'SDCycleScrollView', '~> 1.65'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'Masonry', '~> 1.0.2'
+pod 'MJRefresh'
+pod 'SDWebImage'
+pod 'YYCache'
 
 #json解析工具
 pod 'JSONModel', '~> 1.7.0'

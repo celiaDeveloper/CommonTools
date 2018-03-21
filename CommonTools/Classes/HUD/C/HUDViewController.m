@@ -7,13 +7,8 @@
 //
 
 #import "HUDViewController.h"
-#import "UIButton+extension.h"
-#import "Masonry.h"
 
-#import "UIView+XMHUD.h"
-#import "XMProgressHUD.h"
-
-#import "XTProgressHUD.h"
+#import "UIView+HPProgressHUD.h"
 
 @interface HUDViewController ()
 
@@ -89,8 +84,8 @@
 }
 
 - (UIButton *)createBtnTitle:(NSString *)title tag:(NSInteger)tag {
-    
-    UIButton *btn = [UIButton initButtonWithTitleFont:15.0 TtileColor:[UIColor whiteColor] TitleName:title backgroundColor:self.view.tintColor radius:0];
+//    [UIButton initButtonTitleFont:<#(CGFloat)#> titleColor:<#(UIColor *)#> titleName:<#(NSString *)#> backgroundColor:<#(UIColor *)#> radius:<#(CGFloat)#>]
+    UIButton *btn = [UIButton initButtonTitleFont:15.0 titleColor:[UIColor whiteColor] titleName:title backgroundColor:self.view.tintColor radius:0];
     btn.tag = tag;
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -99,7 +94,7 @@
 
 - (UIButton *)createOtherBtnTitle:(NSString *)title tag:(NSInteger)tag {
     
-    UIButton *btn = [UIButton initButtonWithTitleFont:15.0 TtileColor:[UIColor whiteColor] TitleName:title backgroundColor:[UIColor purpleColor] radius:0];
+    UIButton *btn = [UIButton initButtonTitleFont:15.0 titleColor:[UIColor whiteColor] titleName:title backgroundColor:[UIColor purpleColor] radius:0];
     btn.tag = tag;
     [btn addTarget:self action:@selector(otherBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -118,49 +113,49 @@
             break;
         case 3:
         {
-            [self.view show:@"加载失败！！！" mode:MBProgressHUDModeDeterminateHorizontalBar];
-            [XMProgressHUD shareHUD].hud.progress = 0.5;//调整progress大小
+//            [self.view show:@"加载失败！！！" mode:MBProgressHUDModeDeterminateHorizontalBar];
+//            [XMProgressHUD shareHUD].hud.progress = 0.5;//调整progress大小
         }
             break;
         case 4:
-            [self.view showCustomViewImageName:@"HOME_BTN3" Message:@"加载完成"];
+//            [self.view showCustomViewImageName:@"HOME_BTN3" Message:@"加载完成"];
             break;
         default:
             break;
     }
     
-    [self.view hideHUDAfter:3.0];
+//    [self.view hideHUDAfter:3.0];
     
 }
 
 - (void)otherBtnAction:(UIButton *)btn {
-    
-    XTProgressHUD *hud = [XTProgressHUD progressHUD];
-    
-    switch (btn.tag) {
-        case 5:
-        {
-            [hud showHudAtView:self.view];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [hud hideHud];
-            });
-        }
-            break;
-        case 6:
-        {
-            [hud showHudAtView:self.view withText:@"数据加载中..."];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [hud hideHud];
-            });
-        }
-            break;
-        case 7:
-            [XTProgressHUD showText:@"加载失败！！！" atView:self.view];
-            break;
-        default:
-            break;
-    }
-    
+//
+//    XTProgressHUD *hud = [XTProgressHUD progressHUD];
+//
+//    switch (btn.tag) {
+//        case 5:
+//        {
+//            [hud showHudAtView:self.view];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [hud hideHud];
+//            });
+//        }
+//            break;
+//        case 6:
+//        {
+//            [hud showHudAtView:self.view withText:@"数据加载中..."];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [hud hideHud];
+//            });
+//        }
+//            break;
+//        case 7:
+//            [XTProgressHUD showText:@"加载失败！！！" atView:self.view];
+//            break;
+//        default:
+//            break;
+//    }
+//
 }
 
 

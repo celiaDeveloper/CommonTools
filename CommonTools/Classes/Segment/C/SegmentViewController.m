@@ -23,7 +23,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     
-    SegmentView *segmentV = [[SegmentView alloc] initWithFrame:CGRectMake(0, 64, self.view.w, self.view.h - 64)];
+    SegmentView *segmentV = [[SegmentView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64)];
     [self.view addSubview:segmentV];
 }
 

@@ -68,7 +68,7 @@
         
         _control.tintColor =[UIColor colorWithRed:0.36 green:0.66 blue:0.85 alpha:1.00];
         
-        _control.frame = CGRectMake(0, 0, self.w, 44);
+        _control.frame = CGRectMake(0, 0, self.width, 44);
         _control.delegate = self;
         _control.selectedSegmentIndex = 0;
         _control.bouncySelectionIndicator = NO;
@@ -98,7 +98,7 @@
 - (UITableView *)receiveTableV {
     
     if (!_receiveTableV) {
-        _receiveTableV = [[UITableView alloc] initWithFrame:CGRectMake(0, self.control.bottom, self.w, self.h - self.control.bottom) style:UITableViewStylePlain];
+        _receiveTableV = [[UITableView alloc] initWithFrame:CGRectMake(0, self.control.bottom, self.width, self.height - self.control.bottom) style:UITableViewStylePlain];
         _receiveTableV.dataSource = self;
         _receiveTableV.delegate = self;
         _receiveTableV.tableFooterView = [UIView new];
@@ -110,7 +110,7 @@
 - (UITableView *)sendTableV {
     
     if (!_sendTableV) {
-        _sendTableV = [[UITableView alloc] initWithFrame:CGRectMake(0, self.control.bottom, self.w, self.h - self.control.bottom) style:UITableViewStylePlain];
+        _sendTableV = [[UITableView alloc] initWithFrame:CGRectMake(0, self.control.bottom, self.width, self.height - self.control.bottom) style:UITableViewStylePlain];
         _sendTableV.dataSource = self;
         _sendTableV.delegate = self;
         _sendTableV.tableFooterView = [UIView new];
