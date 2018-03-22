@@ -23,10 +23,10 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     CycleView *cycleV = [[CycleView alloc] initWithFrame:self.view.bounds];
-    cycleV.imagesURLStrings = @[@"http://www.njnfwl.com/imageRepository/ab1446f4-e25e-4c9d-b30f-54faeaaac848.jpg",
-                                @"http://www.njnfwl.com/imageRepository/16ea2773-9ddc-4db4-a5e4-93f2139b0def.jpg",
-                                @"http://www.njnfwl.com/imageRepository/94f8caab-8639-432b-803c-9f46f001523a.jpg",
-                                @"http://www.njnfwl.com/imageRepository/d287d136-1c94-4600-9e20-ea83a07265d8.jpg"];
+    cycleV.imagesURLStrings = @[@"http://pic29.nipic.com/20130514/12477194_083818249176_2.jpg",
+                                @"http://img1.3lian.com/2015/a1/95/d/105.jpg",
+                                @"http://imgsrc.baidu.com/image/c0%3Dshijue1%2C0%2C0%2C294%2C40/sign=5e310a4ddb09b3deffb2ec2ba4d606f4/9d82d158ccbf6c81887581cdb63eb13533fa4050.jpg",
+                                @"http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg"];
     
     cycleV.selectedImageBlock = ^(NSInteger index) {
         

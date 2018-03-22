@@ -2,7 +2,7 @@
 //  XMRequestTools.m
 //  项目初始化模板(TableBarStyle)
 //
-//  Created by 秦正华 on 2017/6/20.
+//  Created by ** on 2017/6/20.
 //  Copyright © 2017年 qinzhenghua. All rights reserved.
 //
 

@@ -10,13 +10,11 @@ SDCycleScrollView 常用的图片轮播框架，可以实现图片的点击动�
 ![Image text](https://github.com/celiaDeveloper/CommonTools/blob/master/Screenshots/textLimit.png)
 
 (3)加载视图
-XMHUD(对MBProgressHUD的封装)
-XTHUD
+HPProgressHUD(对MBProgressHUD的封装)
 ![Image text](https://github.com/celiaDeveloper/CommonTools/blob/master/Screenshots/loadView1.png)
-![Image text](https://github.com/celiaDeveloper/CommonTools/blob/master/Screenshots/loadView2.png)
 
 (4)网络请求封装
-XDDNetworking(对NSURLSession的封装)
+HPApiSender(对AFNetworking的封装)
 XMNetwork(对AFNetworking的封装)
     +(void)request:(NSString *)URL method:(XM_Method)method parameters:(NSDictionary *)parameters tipsShow:(UIView *)view finished:(finishedBlock)finished;
 

@@ -10,6 +10,8 @@
 
 #import "UIView+HPProgressHUD.h"
 
+#import "HPProgressHUD.h"
+
 @interface HUDViewController ()
 
 @end
@@ -32,8 +34,8 @@
     UIButton *btn3 = [self createBtnTitle:@"加载样式 3" tag:3];
     [self.view addSubview:btn3];
     
-    UIButton *btn4 = [self createBtnTitle:@"加载样式 4" tag:4];
-    [self.view addSubview:btn4];
+//    UIButton *btn4 = [self createBtnTitle:@"加载样式 4" tag:4];
+//    [self.view addSubview:btn4];
     
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(100);
@@ -52,10 +54,10 @@
         make.left.right.height.equalTo(btn1);
     }];
     
-    [btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn3.mas_bottom).offset(20);
-        make.left.right.height.equalTo(btn1);
-    }];
+//    [btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(btn3.mas_bottom).offset(20);
+//        make.left.right.height.equalTo(btn1);
+//    }];
     
     
     UIButton *btn5 = [self createOtherBtnTitle:@"加载样式 5" tag:5];
@@ -68,7 +70,7 @@
     [self.view addSubview:btn7];
     
     [btn5 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn4.mas_bottom).offset(20);
+        make.top.equalTo(btn3.mas_bottom).offset(20);
         make.left.right.height.equalTo(btn1);
     }];
     
@@ -84,7 +86,7 @@
 }
 
 - (UIButton *)createBtnTitle:(NSString *)title tag:(NSInteger)tag {
-//    [UIButton initButtonTitleFont:<#(CGFloat)#> titleColor:<#(UIColor *)#> titleName:<#(NSString *)#> backgroundColor:<#(UIColor *)#> radius:<#(CGFloat)#>]
+    
     UIButton *btn = [UIButton initButtonTitleFont:15.0 titleColor:[UIColor whiteColor] titleName:title backgroundColor:self.view.tintColor radius:0];
     btn.tag = tag;
     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -106,56 +108,42 @@
     
     switch (btn.tag) {
         case 1:
-            [self.view showProgress:@"加载中..."];
+            [self.view showLoading:@"加载中..."];
             break;
         case 2:
             [self.view showMessage:@"数据加载成功"];
             break;
         case 3:
-        {
-//            [self.view show:@"加载失败！！！" mode:MBProgressHUDModeDeterminateHorizontalBar];
-//            [XMProgressHUD shareHUD].hud.progress = 0.5;//调整progress大小
-        }
+            [self.view showFailure:@"加载失败"];
             break;
-        case 4:
-//            [self.view showCustomViewImageName:@"HOME_BTN3" Message:@"加载完成"];
-            break;
+        
         default:
             break;
     }
     
-//    [self.view hideHUDAfter:3.0];
+    [self.view hideAfter:3.0];
     
 }
 
 - (void)otherBtnAction:(UIButton *)btn {
-//
-//    XTProgressHUD *hud = [XTProgressHUD progressHUD];
-//
-//    switch (btn.tag) {
-//        case 5:
-//        {
-//            [hud showHudAtView:self.view];
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [hud hideHud];
-//            });
-//        }
-//            break;
-//        case 6:
-//        {
-//            [hud showHudAtView:self.view withText:@"数据加载中..."];
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [hud hideHud];
-//            });
-//        }
-//            break;
-//        case 7:
-//            [XTProgressHUD showText:@"加载失败！！！" atView:self.view];
-//            break;
-//        default:
-//            break;
-//    }
-//
+
+    switch (btn.tag) {
+        case 5:
+        {
+            [HPProgressHUD showLoading:@"加载中..."];
+            [HPProgressHUD hideAfter:3.0];
+        }
+            break;
+        case 6:
+            [HPProgressHUD showMessage:@"数据加载中" inView:self.view];
+            break;
+        case 7:
+            [HPProgressHUD showFailure:@"加载失败" inView:self.view];
+            break;
+        default:
+            break;
+    }
+
 }
 
 
